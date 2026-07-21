@@ -353,7 +353,7 @@
   <div class="wrap intro-grid">
     <div>
       <span class="eyebrow">Welcome</span>
-      <h2 class="display">Ski home, not just to a parking lot.</h2>
+      <h2 class="display">Ski directly to and from your front door.</h2>
       <p>Copper Cup Cabin sits right on the mountain — step out of your skis at the door, or wander five flat minutes into the village for dinner. Inside, heated floors and a soaking hot tub wait for you after a day on the hill, with views that stretch over the Okanagan's snow-laden pines from nearly every room.</p>
     </div>
     <div class="stat-list">
@@ -381,10 +381,9 @@
       <figure class="m6"><img src="images/IMG_2666.jpeg" alt="Bunk room for kids or extra guests"></figure>
       <figure class="m7"><img src="images/IMG_2680.jpeg" alt="Sitting area looking out to the hot tub and BBQ deck"></figure>
       <figure class="m8"><img src="images/IMG_2669.jpeg" alt="Boot room with cubbies and boot dryer"></figure>
-      <figure class="m2"><img src="images/IMG_2497.jpeg" alt="Cabin exterior at night with lit windows and snowy pines"></figure>
       <figure class="m6"><img src="images/IMG_2616.jpeg" alt="Mudroom with stacked washer and dryer"></figure>
-      <figure class="m6"><img src="images/IMG_2463.jpeg" alt="Snowshoe and Nordic trail through the trees"></figure>
       <figure class="m2"><img src="images/IMG_2558.jpeg" alt="Sunset over the mountains from the deck"></figure>
+      <figure class="m2"><img src="images/IMG_2497.jpeg" alt="Cabin exterior at night with lit windows and snowy pines"></figure>
     </div>
   </div>
 </section>
@@ -392,7 +391,7 @@
 <section class="amenities" id="amenities">
   <div class="wrap">
     <span class="eyebrow">Comforts</span>
-    <h2 class="display">Everything for a mountain week</h2>
+    <h2 class="display">Everything you need for a magical mountain stay</h2>
     <p class="amenities-intro">Built for ski days that start early and end slow — gear stays organized, boots dry out, and the whole place stays warm underfoot.</p>
     <div class="amen-grid">
       <div class="amen-item"><span class="num">01</span><h3>Hot Tub</h3><p>Private hot tub on the deck, snow falling around you as you soak.</p></div>
@@ -409,10 +408,28 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Getting Around</span>
-      <h2 class="display">Right where the mountain happens</h2>
-    </div>
-    <p class="lede">Ski in, ski out, and everything else is a short walk away — the village, the Nordic trails, and Happy Valley's tubing and skating.</p>
-    <div class="trail">
+   <!-- Heading: tight line spacing and minimal bottom gap -->
+<h2 style="line-height: 1.1; margin-bottom: 8px;">
+  Right where the mountain happens
+</h2>
+
+<!-- Flex container for text on left, small image on right -->
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 20px;">
+  
+  <!-- Left Side: Paragraph text -->
+  <p class="lede" style="margin-top: 0; margin-bottom: 0; flex: 1;">
+    Ski in, ski out, and everything else is a short walk away — the village, the Nordic trails, and Happy Valley's tubing and skating.
+  </p>
+
+  <!-- Right Side: Small image -->
+  <figure class="m6" style="margin: 0; max-width: 350px; flex-shrink: 0;">
+    <img src="images/IMG_2463.jpeg" alt="Snowshoe and Nordic trail through the trees" style="width: 100%; height: auto; border-radius: 8px;">
+  </figure>
+
+</div>
+
+<!-- Trail stops and SVG stay below -->
+<div class="trail">
       <svg class="trail-svg" viewBox="0 0 1000 70" preserveAspectRatio="none">
         <path d="M0,35 C150,10 250,60 400,35 C550,10 650,60 800,35 C880,20 940,45 1000,35"
               fill="none" stroke="#C9A98A" stroke-width="2" stroke-dasharray="1,14" stroke-linecap="round"/>
@@ -431,12 +448,12 @@
         <div class="stop">
           <div class="dist">Nearby</div>
           <h4>Nordic &amp; Snowshoe Trails</h4>
-          <p>Groomed cross-country tracks and snowshoe routes right outside.</p>
+          <p>Groomed cross-country tracks and snowshoe routes right outside your door.</p>
         </div>
         <div class="stop">
           <div class="dist">Nearby</div>
           <h4>Happy Valley</h4>
-          <p>Tubing and skating for the whole group, a short trip from the cabin.</p>
+          <p>Tubing and skating for the whole family, a short downhill walk from the cabin.</p>
         </div>
       </div>
     </div>
@@ -463,8 +480,9 @@
 <script>
   // ---- EDIT THIS LIST to mark booked dates (format: "YYYY-MM-DD") ----
   const bookedDates = new Set([
-    // "2026-12-24","2026-12-25","2026-12-26",
-  ]);
+  "2026-12-27","2026-12-28","2026-12-29","2026-12-30","2026-12-31",
+    "2027-01-01","2027-01-02","2027-01-03",
+]);
 
   function buildMonth(container, year, month){
     const card = document.createElement('div');
@@ -502,16 +520,16 @@
 
   const calContainer = document.getElementById('calendars');
   const today = new Date();
-  buildMonth(calContainer, today.getFullYear(), today.getMonth());
-  for(let i = 1; i <= 5; i++){
-    const future = new Date(today.getFullYear(), today.getMonth()+i, 1);
-    buildMonth(calContainer, future.getFullYear(), future.getMonth());
-  }
+ for(let i = 1; i <= 11; i++){
+     const future = new Date(today.getFullYear(), today.getMonth()+i, 1);
+     buildMonth(calContainer, future.getFullYear(), future.getMonth());
+   }
+  
 </script>
 
 <section class="book" id="book">
   <div class="wrap">
-    <h2 class="display">Ready for your Big White week?</h2>
+    <h2 class="display">Ready for your stay at Big White?</h2>
     <p>Reach out directly to check dates and rates — we usually reply within a day.</p>
     <a class="book-email" href="mailto:Coppercupcabin@gmail.com">Coppercupcabin@gmail.com</a>
     <div class="book-note">Copper Cup Cabin · Big White Mountain, BC</div>
