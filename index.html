@@ -502,7 +502,10 @@
 
   const calContainer = document.getElementById('calendars');
   const today = new Date();
-  buildMonth(calContainer, today.getFullYear(), today.getMonth());
+ for(let i = 1; i <= 11; i++){
+     const future = new Date(today.getFullYear(), today.getMonth()+i, 1);
+     buildMonth(calContainer, future.getFullYear(), future.getMonth());
+   }
   for(let i = 1; i <= 5; i++){
     const future = new Date(today.getFullYear(), today.getMonth()+i, 1);
     buildMonth(calContainer, future.getFullYear(), future.getMonth());
