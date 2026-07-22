@@ -167,9 +167,9 @@
 /* ============================================================
    CONFIG — Carly: update these two values after setup.
    ============================================================ */
-const PAGE_PASSCODE   = "BIGWHITE2026";  // shared with guests to unlock this page
+const PAGE_PASSCODE   = "BigWhite2026";  // shared with guests to unlock this page
 const API_TOKEN       = "coppercup-booking-2026"; // must match SHARED_SECRET in the Apps Script
-const APPS_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE"; // from Deploy > New deployment
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwNubZ_2UvKcLddWY0xxzoZJ4dT7X2xCnibgJa2-mzauRRrtFyeeJ55dTJUSYQrGlmY/exec"; // from Deploy > New deployment
 const PDF_TEMPLATE_URL = "/CopperCup_Rental_Agreement_Fillable.pdf"; // path to the fillable PDF on your site
 /* ============================================================ */
 
@@ -249,18 +249,22 @@ function recalc(){
 
 /* Pre-fill (and lock) fields from a link like:
    booking-request-8fk2m.html?rate=950&checkin=2026-12-27&checkout=2027-01-03
-   Dates must be in yyyy-mm-dd format. */
-(function applyLinkPresets(){
-  const params = new URLSearchParams(window.location.search);
-  if (params.has('rate')) {
+   Dates must be in yyyy-mm-dd format. Wrapped in try/catch so a bad or
+   missing parameter can never block the rest of the page from working. */
+try {
+  const linkParams = new URLSearchParams(window.location.search);
+  if (linkParams.has('rate')) {
     const rateInput = document.getElementById('nightly_rate');
-    rateInput.value = params.get('rate');
+    rateInput.value = linkParams.get('rate');
     rateInput.readOnly = true;
-    document.getElementById('rateLockedNote').style.display = 'block';
+    const note = document.getElementById('rateLockedNote');
+    if (note) note.style.display = 'block';
   }
-  if (params.has('checkin')) document.getElementById('checkin_date').value = params.get('checkin');
-  if (params.has('checkout')) document.getElementById('checkout_date').value = params.get('checkout');
-})();
+  if (linkParams.has('checkin')) document.getElementById('checkin_date').value = linkParams.get('checkin');
+  if (linkParams.has('checkout')) document.getElementById('checkout_date').value = linkParams.get('checkout');
+} catch (linkErr) {
+  console.warn('Could not apply link presets:', linkErr);
+}
 
 recalc();
 
