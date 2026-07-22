@@ -60,6 +60,8 @@
     background:#fff;color:var(--ink);font-size:0.95rem;font-family:inherit;
   }
   input:focus{outline:2px solid var(--oak);outline-offset:1px;}
+  input[readonly]{background:var(--parchment);color:var(--ink-soft);}
+  .locked-note{font-size:0.78rem;color:var(--oak-deep);margin-top:4px;}
   .field{margin-bottom:16px;}
 
   .summary{
@@ -125,7 +127,11 @@
         <div class="field"><label>Check-Out Date (11:00 AM)</label><input type="date" id="checkout_date" required></div>
       </div>
       <div class="grid2">
-        <div class="field"><label>Nightly Rate (CAD)</label><input type="number" id="nightly_rate" value="800" min="0" required></div>
+        <div class="field">
+          <label>Nightly Rate (CAD)</label>
+          <input type="number" id="nightly_rate" value="800" min="0" required>
+          <div class="locked-note" id="rateLockedNote" style="display:none;">Rate set by host for this stay.</div>
+        </div>
         <div class="field"><label>Cleaning Fee (CAD)</label><input type="number" id="cleaning_fee" value="250" min="0" required></div>
       </div>
       <div class="field" style="max-width:calc(50% - 9px)">
@@ -163,7 +169,7 @@
    ============================================================ */
 const PAGE_PASSCODE   = "BIGWHITE2026";  // shared with guests to unlock this page
 const API_TOKEN       = "coppercup-booking-2026"; // must match SHARED_SECRET in the Apps Script
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwNubZ_2UvKcLddWY0xxzoZJ4dT7X2xCnibgJa2-mzauRRrtFyeeJ55dTJUSYQrGlmY/exec"; // from Deploy > New deployment
+const APPS_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE"; // from Deploy > New deployment
 const PDF_TEMPLATE_URL = "/CopperCup_Rental_Agreement_Fillable.pdf"; // path to the fillable PDF on your site
 /* ============================================================ */
 
@@ -240,6 +246,22 @@ function recalc(){
 ['checkin_date','checkout_date','nightly_rate','cleaning_fee','security_deposit'].forEach(id=>{
   document.getElementById(id).addEventListener('input', recalc);
 });
+
+/* Pre-fill (and lock) fields from a link like:
+   booking-request-8fk2m.html?rate=950&checkin=2026-12-27&checkout=2027-01-03
+   Dates must be in yyyy-mm-dd format. */
+(function applyLinkPresets(){
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('rate')) {
+    const rateInput = document.getElementById('nightly_rate');
+    rateInput.value = params.get('rate');
+    rateInput.readOnly = true;
+    document.getElementById('rateLockedNote').style.display = 'block';
+  }
+  if (params.has('checkin')) document.getElementById('checkin_date').value = params.get('checkin');
+  if (params.has('checkout')) document.getElementById('checkout_date').value = params.get('checkout');
+})();
+
 recalc();
 
 async function fillAndDownloadPdf(data){
