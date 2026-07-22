@@ -400,9 +400,9 @@
   display:flex; align-items:center; justify-content:space-between;
   gap:16px; margin-bottom:20px;
 }
-.location-flex-text{ flex:1; min-width:0; }
+.location-flex-text{ flex:1; min-width:0; order:1; }
 .location-flex-image{
-  margin:0; max-width:350px; flex-shrink:0;
+  margin:0; max-width:350px; flex-shrink:0; order:2;
 }
 .location-flex-image img{
   width:100%; height:auto; border-radius:8px;
@@ -412,8 +412,8 @@
   .location-flex-row::after{ content:""; display:table; clear:both; }
   .location-flex-image{
     float:right;
-    width:44%;
-    max-width:220px;
+    width:52%;
+    max-width:270px;
     margin:4px 0 16px 18px;
   }
   .location-flex-text .lede{ font-size:0.95rem; }
