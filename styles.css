@@ -294,14 +294,6 @@
     background:#EDEAE3;color:#AFA595;text-decoration:line-through;
   }
   .cal-day.available{color:var(--pine);font-weight:500;}
-  .cal-day.checkin{
-    background:linear-gradient(90deg, var(--snow) 50%, #EDEAE3 50%);
-    color:var(--ink);font-weight:500;
-  }
-  .cal-day.checkout{
-    background:linear-gradient(90deg, #EDEAE3 50%, var(--snow) 50%);
-    color:var(--ink);font-weight:500;
-  }
   .avail-note{
     margin-top:30px;font-size:0.85rem;color:var(--ink-soft);max-width:56ch;
   }
@@ -348,7 +340,7 @@
 .guide-hero h1{font-size:clamp(2.2rem,4.8vw,3.6rem);color:var(--snow);margin:14px 0 18px;}
 .guide-hero p{color:#CFC7B8;max-width:56ch;font-size:1.02rem;}
 .back-home{
-  display:inline-flex;align-items:center;gap:8px;
+  display:flex;align-items:center;gap:8px;
   font-size:0.85rem;color:#CFC7B8;margin-bottom:26px;
 }
 .back-home:hover{color:var(--snow);}
