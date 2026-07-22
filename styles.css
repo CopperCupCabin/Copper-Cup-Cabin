@@ -408,9 +408,15 @@
   width:100%; height:auto; border-radius:8px;
 }
 @media (max-width:700px){
-  .location-flex-row{ gap:12px; align-items:flex-start; }
-  .location-flex-image{ flex:0 0 34%; max-width:150px; }
-  .location-flex-text .lede{ font-size:0.92rem; }
+  .location-flex-row{ display:block; }
+  .location-flex-row::after{ content:""; display:table; clear:both; }
+  .location-flex-image{
+    float:right;
+    width:44%;
+    max-width:220px;
+    margin:4px 0 16px 18px;
+  }
+  .location-flex-text .lede{ font-size:0.95rem; }
 }
 
 /* MOBILE HAMBURGER MENU */
