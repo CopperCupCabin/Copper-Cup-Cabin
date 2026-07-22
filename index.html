@@ -21,6 +21,15 @@
     <a href="guide.html">Trip Guide</a>
     <a href="#book">Book</a>
   </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#gallery">Gallery</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#location">Location</a>
+    <a href="#availability">Availability</a>
+    <a href="guide.html">Trip Guide</a>
+    <a href="#book">Book</a>
+  </div>
 </header>
 
 <section class="hero" id="top">
@@ -93,15 +102,15 @@
     <div class="section-head">
       <span class="eyebrow">Getting Around</span>
    <!-- Heading: tight line spacing and minimal bottom gap -->
-<h2 style="line-height: 1.1; margin-bottom: 8px;">
+<h2 class="display" style="line-height: 1.1; margin-bottom: 8px;">
   Right where the mountain happens
 </h2>
 
 <!-- Flex container for text on left, small image on right -->
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 20px;">
-  
+<div class="location-flex-row">
+
   <!-- Left Side: Paragraph text -->
-  <div style="flex: 1;">
+  <div class="location-flex-text">
     <p class="lede" style="margin-top: 0; margin-bottom: 12px;">
       Ski in, ski out, and everything else is a short walk away — the village, the Nordic trails, and Happy Valley's tubing and skating.
     </p>
@@ -111,8 +120,8 @@
   </div>
 
   <!-- Right Side: Small image -->
-  <figure class="m6" style="margin: 0; max-width: 350px; flex-shrink: 0;">
-    <img src="images/IMG_2463.jpeg" alt="Snowshoe and Nordic trail through the trees" style="width: 100%; height: auto; border-radius: 8px;">
+  <figure class="m6 location-flex-image">
+    <img src="images/IMG_2463.jpeg" alt="Snowshoe and Nordic trail through the trees">
   </figure>
 
 </div>
@@ -239,6 +248,15 @@
   window.addEventListener('scroll', () => {
     if(window.scrollY > 40){ header.classList.add('scrolled'); }
     else{ header.classList.remove('scrolled'); }
+  });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  menuToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileNav.classList.remove('open'));
   });
 </script>
 
