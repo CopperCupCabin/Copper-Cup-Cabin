@@ -169,6 +169,7 @@
       <div class="avail-legend">
         <span><span class="dot avail"></span> Available</span>
         <span><span class="dot booked"></span> Booked</span>
+        <span><span class="dot" style="background:linear-gradient(90deg, var(--pine) 50%, #B7ADA0 50%);"></span> Check-in/out day</span>
       </div>
     </div>
     <div class="calendars" id="calendars"></div>
@@ -177,13 +178,73 @@
 </section>
 
 <script>
-  // ---- EDIT THIS LIST to mark booked dates (format: "YYYY-MM-DD") ----
-  const bookedDates = new Set([
-  "2026-12-27","2026-12-28","2026-12-29","2026-12-30","2026-12-31",
-    "2027-01-01","2027-01-02","2027-01-03",
-]);
+  // =========================================================================
+  // BOOKING DATA SOURCE
+  // =========================================================================
+  // This calendar is fed by a Google Sheet published as CSV. To update
+  // availability, just edit the sheet — no code changes needed.
+  //
+  // SHEET SETUP:
+  //   1. Create a Google Sheet with two columns: "Check-In" and "Check-Out"
+  //      (header row required), one row per stay, dates as YYYY-MM-DD.
+  //   2. File -> Share -> Publish to web -> select the sheet -> CSV -> Publish.
+  //   3. Paste the resulting URL below as SHEET_CSV_URL.
+  //
+  // Until you set that up (or if the fetch ever fails/is offline), the
+  // FALLBACK_STAYS list below is used instead, so the calendar always works.
+  // =========================================================================
 
-  function buildMonth(container, year, month){
+  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQPqBouDHlgFhv6SoJ_RrPNwXim0dZtc22AIdy6AShqWZ_HTF27kTaC4MLfUy2rZk-SS5PGdoLkddB1/pub?gid=1829806390&single=true&output=csv";
+
+  const FALLBACK_STAYS = [
+    { checkIn: "2026-12-27", checkOut: "2027-01-03" }
+  ];
+
+  function isValidIsoDate(value){
+    // Must look like YYYY-MM-DD and parse to a real date (catches blanks,
+    // stray "1899-12-30" placeholder values, and other malformed cells)
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const d = new Date(value + "T00:00:00");
+    if(isNaN(d.getTime())) return false;
+    if(d.getFullYear() < 2020) return false; // guards against spreadsheet epoch artifacts
+    return true;
+  }
+
+  function parseCsvToStays(csvText){
+    const lines = csvText.trim().split("\n").filter(Boolean);
+    // Skip header row
+    const rows = lines.slice(1);
+    const stays = [];
+    for(const row of rows){
+      const cols = row.split(",").map(c => c.replace(/["\r]/g,"").trim());
+      const [checkIn, checkOut] = cols;
+      if(isValidIsoDate(checkIn) && isValidIsoDate(checkOut)){
+        stays.push({ checkIn, checkOut });
+      }
+    }
+    return stays;
+  }
+
+  function buildDateStatus(stays){
+    const dateStatus = {};
+    stays.forEach(({ checkIn, checkOut }) => {
+      const start = new Date(checkIn + "T00:00:00");
+      const end = new Date(checkOut + "T00:00:00");
+      for(let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)){
+        const iso = d.toISOString().slice(0,10);
+        if(iso === checkIn){
+          dateStatus[iso] = "checkin";   // morning free, afternoon booked
+        } else if(iso === checkOut){
+          dateStatus[iso] = "checkout";  // morning booked, afternoon free
+        } else {
+          dateStatus[iso] = "booked";    // full day booked
+        }
+      }
+    });
+    return dateStatus;
+  }
+
+  function buildMonth(container, year, month, dateStatus){
     const card = document.createElement('div');
     card.className = 'cal-card';
     const label = document.createElement('div');
@@ -209,7 +270,8 @@
     for(let d=1; d<=daysInMonth; d++){
       const el = document.createElement('div');
       const iso = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      el.className = 'cal-day ' + (bookedDates.has(iso) ? 'booked' : 'available');
+      const status = dateStatus[iso] || 'available';
+      el.className = 'cal-day ' + status;
       el.textContent = d;
       grid.appendChild(el);
     }
@@ -217,14 +279,35 @@
     container.appendChild(card);
   }
 
-  const calContainer = document.getElementById('calendars');
-  const today = new Date();
-  buildMonth(calContainer, today.getFullYear(), today.getMonth());
- for(let i = 1; i <= 11; i++){
-     const future = new Date(today.getFullYear(), today.getMonth()+i, 1);
-     buildMonth(calContainer, future.getFullYear(), future.getMonth());
-   }
-  
+  function renderCalendar(stays){
+    const dateStatus = buildDateStatus(stays);
+    const calContainer = document.getElementById('calendars');
+    calContainer.innerHTML = '';
+    const today = new Date();
+    buildMonth(calContainer, today.getFullYear(), today.getMonth(), dateStatus);
+    for(let i = 1; i <= 11; i++){
+      const future = new Date(today.getFullYear(), today.getMonth()+i, 1);
+      buildMonth(calContainer, future.getFullYear(), future.getMonth(), dateStatus);
+    }
+  }
+
+  if(SHEET_CSV_URL){
+    fetch(SHEET_CSV_URL)
+      .then(res => {
+        if(!res.ok) throw new Error('Sheet fetch failed');
+        return res.text();
+      })
+      .then(csvText => {
+        const stays = parseCsvToStays(csvText);
+        renderCalendar(stays.length ? stays : FALLBACK_STAYS);
+      })
+      .catch(err => {
+        console.warn('Falling back to local booking data:', err);
+        renderCalendar(FALLBACK_STAYS);
+      });
+  } else {
+    renderCalendar(FALLBACK_STAYS);
+  }
 </script>
 
 <section class="book" id="book">

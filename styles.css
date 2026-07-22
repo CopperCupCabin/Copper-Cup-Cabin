@@ -294,6 +294,14 @@
     background:#EDEAE3;color:#AFA595;text-decoration:line-through;
   }
   .cal-day.available{color:var(--pine);font-weight:500;}
+  .cal-day.checkin{
+    background:linear-gradient(90deg, var(--snow) 50%, #EDEAE3 50%);
+    color:var(--ink);font-weight:500;
+  }
+  .cal-day.checkout{
+    background:linear-gradient(90deg, #EDEAE3 50%, var(--snow) 50%);
+    color:var(--ink);font-weight:500;
+  }
   .avail-note{
     margin-top:30px;font-size:0.85rem;color:var(--ink-soft);max-width:56ch;
   }
