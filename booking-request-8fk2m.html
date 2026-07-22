@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Booking Request — Copper Cup Cabin</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --snow:#FAF7F2; --parchment:#F0E8DB; --oak:#9C7A54; --oak-deep:#6E5638;
+    --ink:#2A2620; --ink-soft:#54493C; --ember:#A24E2E; --ember-deep:#833E23;
+    --pine:#4B5847; --mist:#D8DCD6; --line:rgba(42,38,32,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--snow); color:var(--ink); font-family:'Work Sans', sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em;}
+  .wrap{max-width:720px;margin:0 auto;padding:60px 28px 100px;}
+  .eyebrow{
+    font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;
+    color:var(--oak-deep);font-weight:600;
+  }
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:10px 0 8px;}
+  .sub{color:var(--ink-soft);max-width:56ch;margin-bottom:36px;font-size:0.98rem;}
+
+  /* passcode gate */
+  #gate{
+    position:fixed;inset:0;background:var(--ink);color:var(--snow);
+    display:flex;align-items:center;justify-content:center;z-index:100;
+  }
+  #gate .box{max-width:360px;padding:0 24px;text-align:center;}
+  #gate h2{color:var(--snow);font-size:1.5rem;margin-bottom:10px;}
+  #gate p{color:#CFC7B8;font-size:0.9rem;margin-bottom:22px;}
+  #gate input{
+    width:100%;padding:13px 16px;border-radius:2px;border:1px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.06);color:var(--snow);font-size:1rem;text-align:center;
+    letter-spacing:0.1em;
+  }
+  #gate button{
+    margin-top:14px;width:100%;padding:13px;background:var(--ember);color:var(--snow);
+    border:none;border-radius:2px;font-size:0.92rem;font-weight:500;cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  #gate button:hover{background:var(--ember-deep);}
+  #gate .err{color:#E8A98A;font-size:0.85rem;margin-top:10px;min-height:1.2em;}
+
+  section{margin-bottom:38px;}
+  .section-label{
+    font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;
+    color:var(--oak-deep);font-weight:600;margin-bottom:16px;display:block;
+  }
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media (max-width:560px){.grid2{grid-template-columns:1fr;}}
+  label{display:block;font-size:0.85rem;color:var(--ink-soft);margin-bottom:6px;}
+  input{
+    width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:2px;
+    background:#fff;color:var(--ink);font-size:0.95rem;font-family:inherit;
+  }
+  input:focus{outline:2px solid var(--oak);outline-offset:1px;}
+  .field{margin-bottom:16px;}
+
+  .summary{
+    background:var(--parchment);border-radius:3px;padding:26px 26px 20px;margin-top:8px;
+  }
+  .srow{
+    display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);
+    font-size:0.92rem;
+  }
+  .srow:last-child{border-bottom:none;}
+  .srow.big{font-weight:600;font-family:'Fraunces',serif;font-size:1.05rem;color:var(--ember-deep);border-top:1px solid var(--oak);margin-top:6px;padding-top:14px;}
+  .srow .k{color:var(--ink-soft);}
+  .srow .v{font-weight:500;}
+
+  .cta{
+    margin-top:30px;width:100%;padding:16px;background:var(--ember);color:var(--snow);
+    border:none;border-radius:2px;font-size:1rem;font-weight:500;cursor:pointer;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .cta:hover{background:var(--ember-deep);transform:translateY(-1px);}
+  .cta:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+  #status{margin-top:16px;font-size:0.9rem;text-align:center;min-height:1.4em;}
+  #status.ok{color:var(--pine);}
+  #status.err{color:var(--ember-deep);}
+  footer{margin-top:50px;font-size:0.8rem;color:var(--ink-soft);text-align:center;}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <h2>Copper Cup Cabin</h2>
+    <p>This booking request page is private. Enter the passcode your host gave you.</p>
+    <input type="password" id="passcodeInput" placeholder="Passcode" autocomplete="off">
+    <button onclick="checkPasscode()">Enter</button>
+    <div class="err" id="gateErr"></div>
+  </div>
+</div>
+
+<div class="wrap" id="formWrap" style="display:none;">
+  <span class="eyebrow">Copper Cup Cabin</span>
+  <h1>Booking Request</h1>
+  <p class="sub">Fill in your details and stay dates below. Totals and payment due dates calculate automatically.
+  On submit, this both sends your request to us and downloads a filled-in copy of the rental agreement for you to review and sign.</p>
+
+  <form id="bookingForm">
+    <section>
+      <span class="section-label">Your Information</span>
+      <div class="grid2">
+        <div class="field"><label>Full Name</label><input type="text" id="renter_name" required></div>
+        <div class="field"><label>Total Guests (max 5)</label><input type="number" id="total_guests" min="1" max="5" value="1" required></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Email Address</label><input type="email" id="renter_email" required></div>
+        <div class="field"><label>Phone Number</label><input type="tel" id="renter_phone" required></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="section-label">Reservation Dates & Rate</span>
+      <div class="grid2">
+        <div class="field"><label>Check-In Date (4:00 PM)</label><input type="date" id="checkin_date" required></div>
+        <div class="field"><label>Check-Out Date (11:00 AM)</label><input type="date" id="checkout_date" required></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Nightly Rate (CAD)</label><input type="number" id="nightly_rate" value="800" min="0" required></div>
+        <div class="field"><label>Cleaning Fee (CAD)</label><input type="number" id="cleaning_fee" value="250" min="0" required></div>
+      </div>
+      <div class="field" style="max-width:calc(50% - 9px)">
+        <label>Refundable Security Deposit (CAD)</label><input type="number" id="security_deposit" value="500" min="0" required>
+      </div>
+    </section>
+
+    <section>
+      <span class="section-label">Estimated Summary (auto-calculated)</span>
+      <div class="summary">
+        <div class="srow"><span class="k">Nights</span><span class="v" id="s_nights">—</span></div>
+        <div class="srow"><span class="k">Rental Fee (nights × rate)</span><span class="v" id="s_rental">—</span></div>
+        <div class="srow"><span class="k">Cleaning Fee</span><span class="v" id="s_cleaning">—</span></div>
+        <div class="srow"><span class="k">Subtotal</span><span class="v" id="s_subtotal">—</span></div>
+        <div class="srow"><span class="k">Refundable Security Deposit</span><span class="v" id="s_deposit">—</span></div>
+        <div class="srow big"><span class="k">Total Stay Cost</span><span class="v" id="s_total">—</span></div>
+        <div class="srow"><span class="k">Initial Deposit (50%, due upon signing)</span><span class="v" id="s_initial">—</span></div>
+        <div class="srow"><span class="k">Final Payment (remaining 50% + security deposit)</span><span class="v" id="s_final">—</span></div>
+        <div class="srow"><span class="k">Final Payment Due Date</span><span class="v" id="s_final_due">—</span></div>
+        <div class="srow"><span class="k">Security Deposit Refundable By</span><span class="v" id="s_refund_due">—</span></div>
+      </div>
+    </section>
+
+    <button type="submit" class="cta" id="submitBtn">Submit Request & Download Agreement</button>
+    <div id="status"></div>
+  </form>
+
+  <footer>Copper Cup Cabin · 236 Feathertop Way, Big White Mountain, BC · coppercupcabin@gmail.com</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script>
+/* ============================================================
+   CONFIG — Carly: update these two values after setup.
+   ============================================================ */
+const PAGE_PASSCODE   = "BIGWHITE2026";  // shared with guests to unlock this page
+const API_TOKEN       = "coppercup-booking-2026"; // must match SHARED_SECRET in the Apps Script
+const APPS_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE"; // from Deploy > New deployment
+const PDF_TEMPLATE_URL = "/CopperCup_Rental_Agreement_Fillable.pdf"; // path to the fillable PDF on your site
+/* ============================================================ */
+
+function checkPasscode(){
+  const val = document.getElementById('passcodeInput').value;
+  if (val === PAGE_PASSCODE) {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('formWrap').style.display = 'block';
+    sessionStorage.setItem('ccc_unlocked', '1');
+  } else {
+    document.getElementById('gateErr').textContent = 'Incorrect passcode.';
+  }
+}
+document.getElementById('passcodeInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPasscode(); });
+if (sessionStorage.getItem('ccc_unlocked') === '1') {
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('formWrap').style.display = 'block';
+}
+
+function fmtMoney(n){ return '$' + n.toLocaleString('en-CA', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' CAD'; }
+function fmtDate(d){
+  if (!d || isNaN(d.getTime())) return '—';
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  return `${mm}/${dd}/${d.getFullYear()}`;
+}
+function parseDateInput(id){
+  const v = document.getElementById(id).value;
+  if (!v) return null;
+  const [y,m,d] = v.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+
+let calc = {};
+
+function recalc(){
+  const checkin = parseDateInput('checkin_date');
+  const checkout = parseDateInput('checkout_date');
+  const rate = Number(document.getElementById('nightly_rate').value) || 0;
+  const cleaning = Number(document.getElementById('cleaning_fee').value) || 0;
+  const deposit = Number(document.getElementById('security_deposit').value) || 0;
+
+  let nights = 0;
+  if (checkin && checkout && checkout > checkin) {
+    nights = Math.round((checkout - checkin) / 86400000);
+  }
+  const rental = nights * rate;
+  const subtotal = rental + cleaning;
+  const total = subtotal + deposit;
+  const initialDeposit = subtotal * 0.5;
+  const finalPayment = subtotal * 0.5 + deposit;
+
+  let finalDue = null, refundDue = null;
+  if (checkin) finalDue = new Date(checkin.getTime() - 30*86400000);
+  if (checkout) refundDue = new Date(checkout.getTime() + 7*86400000);
+
+  document.getElementById('s_nights').textContent = nights || '—';
+  document.getElementById('s_rental').textContent = fmtMoney(rental);
+  document.getElementById('s_cleaning').textContent = fmtMoney(cleaning);
+  document.getElementById('s_subtotal').textContent = fmtMoney(subtotal);
+  document.getElementById('s_deposit').textContent = fmtMoney(deposit);
+  document.getElementById('s_total').textContent = fmtMoney(total);
+  document.getElementById('s_initial').textContent = fmtMoney(initialDeposit);
+  document.getElementById('s_final').textContent = fmtMoney(finalPayment);
+  document.getElementById('s_final_due').textContent = fmtDate(finalDue);
+  document.getElementById('s_refund_due').textContent = fmtDate(refundDue);
+
+  calc = {
+    nights, rental, subtotal, total, initialDeposit, finalPayment,
+    finalDueStr: fmtDate(finalDue), refundDueStr: fmtDate(refundDue),
+    checkinStr: fmtDate(checkin), checkoutStr: fmtDate(checkout),
+  };
+}
+['checkin_date','checkout_date','nightly_rate','cleaning_fee','security_deposit'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', recalc);
+});
+recalc();
+
+async function fillAndDownloadPdf(data){
+  const bytes = await fetch(PDF_TEMPLATE_URL).then(r=>{
+    if(!r.ok) throw new Error('Could not load PDF template at ' + PDF_TEMPLATE_URL);
+    return r.arrayBuffer();
+  });
+  const { PDFDocument } = PDFLib;
+  const pdfDoc = await PDFDocument.load(bytes);
+  const form = pdfDoc.getForm();
+  const set = (name, val) => { try { form.getTextField(name).setText(String(val)); } catch(e){ console.warn('field missing', name); } };
+
+  set('renter_name', data.renter_name);
+  set('renter_email', data.renter_email);
+  set('renter_phone', data.renter_phone);
+  set('total_guests', data.total_guests);
+  set('checkin_date', calc.checkinStr);
+  set('checkout_date', calc.checkoutStr);
+  set('nightly_rate', data.nightly_rate);
+  set('nights', calc.nights);
+  set('rental_fee', calc.rental.toFixed(2));
+  set('cleaning_fee', data.cleaning_fee);
+  set('subtotal', calc.subtotal.toFixed(2));
+  set('security_deposit', data.security_deposit);
+  set('total_stay', calc.total.toFixed(2));
+  set('initial_deposit', calc.initialDeposit.toFixed(2));
+  set('final_payment', calc.finalPayment.toFixed(2));
+  set('final_payment_due_date', calc.finalDueStr);
+  set('security_refund_date', calc.refundDueStr);
+
+  const outBytes = await pdfDoc.save();
+  const blob = new Blob([outBytes], {type:'application/pdf'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Copper_Cup_Agreement_${data.renter_name.replace(/\s+/g,'_') || 'Guest'}.pdf`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+document.getElementById('bookingForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('status');
+  btn.disabled = true;
+  status.className = ''; status.textContent = 'Submitting...';
+
+  const data = {
+    renter_name: document.getElementById('renter_name').value.trim(),
+    renter_email: document.getElementById('renter_email').value.trim(),
+    renter_phone: document.getElementById('renter_phone').value.trim(),
+    total_guests: document.getElementById('total_guests').value,
+    checkin_date: calc.checkinStr,
+    checkout_date: calc.checkoutStr,
+    nightly_rate: document.getElementById('nightly_rate').value,
+    cleaning_fee: document.getElementById('cleaning_fee').value,
+    security_deposit: document.getElementById('security_deposit').value,
+    nights: calc.nights,
+    rental_fee: calc.rental.toFixed(2),
+    subtotal: calc.subtotal.toFixed(2),
+    total_stay: calc.total.toFixed(2),
+    initial_deposit: calc.initialDeposit.toFixed(2),
+    final_payment: calc.finalPayment.toFixed(2),
+    final_payment_due_date: calc.finalDueStr,
+    security_refund_date: calc.refundDueStr,
+    token: API_TOKEN,
+  };
+
+  try {
+    if (APPS_SCRIPT_URL && APPS_SCRIPT_URL.indexOf('PASTE_YOUR') === -1) {
+      const body = new URLSearchParams(data);
+      await fetch(APPS_SCRIPT_URL, { method:'POST', mode:'no-cors', body });
+    }
+    await fillAndDownloadPdf(data);
+    status.className = 'ok';
+    status.textContent = 'Request submitted and agreement downloaded. We will follow up by email shortly.';
+  } catch (err) {
+    console.error(err);
+    status.className = 'err';
+    status.textContent = 'Something went wrong: ' + err.message;
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
