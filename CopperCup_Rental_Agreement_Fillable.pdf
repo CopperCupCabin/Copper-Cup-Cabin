@@ -57,7 +57,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV (Carly Sylvester) /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 54 574 296 592 ] /Subtype /Widget /T (owner_name) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 54 580 296 598 ] /Subtype /Widget /T (owner_name) 
   /TU (Owner name) /Type /Annot /V (Carly Sylvester)
 >>
 endobj
@@ -80,7 +80,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 316 574 558 592 ] /Subtype /Widget /T (renter_name) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 316 580 558 598 ] /Subtype /Widget /T (renter_name) 
   /TU (Guest full legal name) /Type /Annot /V ()
 >>
 endobj
@@ -103,7 +103,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 54 528 296 546 ] /Subtype /Widget /T (renter_email) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 54 538 296 556 ] /Subtype /Widget /T (renter_email) 
   /TU (Guest email address) /Type /Annot /V ()
 >>
 endobj
@@ -126,7 +126,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 316 528 558 546 ] /Subtype /Widget /T (renter_phone) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 316 538 558 556 ] /Subtype /Widget /T (renter_phone) 
   /TU (Guest phone number) /Type /Annot /V ()
 >>
 endobj
@@ -150,7 +150,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 54 482 169 500 ] /Subtype /Widget /T (total_guests) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 54 496 169 514 ] /Subtype /Widget /T (total_guests) 
   /TU (Total number of guests) /Type /Annot /V ()
 >>
 endobj
@@ -173,7 +173,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 10 /P 62 0 R /Rect [ 54 400 296 418 ] /Subtype /Widget /T (checkin_date) 
+  /Ff 0 /MaxLen 10 /P 62 0 R /Rect [ 54 426 296 444 ] /Subtype /Widget /T (checkin_date) 
   /TU (Check-in date, format mm/dd/yyyy) /Type /Annot /V ()
 >>
 endobj
@@ -196,7 +196,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 10 /P 62 0 R /Rect [ 316 400 558 418 ] /Subtype /Widget /T (checkout_date) 
+  /Ff 0 /MaxLen 10 /P 62 0 R /Rect [ 316 426 558 444 ] /Subtype /Widget /T (checkout_date) 
   /TU (Check-out date, format mm/dd/yyyy) /Type /Annot /V ()
 >>
 endobj
@@ -220,7 +220,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV (800) /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 54 354 169 372 ] /Subtype /Widget /T (nightly_rate) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 54 384 169 402 ] /Subtype /Widget /T (nightly_rate) 
   /TU (Nightly rate in CAD) /Type /Annot /V (800)
 >>
 endobj
@@ -244,7 +244,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 316 354 431 372 ] /Subtype /Widget /T (nights) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 316 384 431 402 ] /Subtype /Widget /T (nights) 
   /TU (Auto-calculated nights) /Type /Annot /V ()
 >>
 endobj
@@ -266,7 +266,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 283 558 299 ] /Subtype /Widget /T (rental_fee) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 325 558 341 ] /Subtype /Widget /T (rental_fee) 
   /TU (Rental Fee  \(Nights x Nightly Rate\)) /Type /Annot /V ()
 >>
 endobj
@@ -289,7 +289,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV (250) /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 259 558 275 ] /Subtype /Widget /T (cleaning_fee) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 304 558 320 ] /Subtype /Widget /T (cleaning_fee) 
   /TU (Cleaning Fee) /Type /Annot /V (250)
 >>
 endobj
@@ -311,7 +311,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 235 558 251 ] /Subtype /Widget /T (subtotal) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 283 558 299 ] /Subtype /Widget /T (subtotal) 
   /TU (Subtotal) /Type /Annot /V ()
 >>
 endobj
@@ -334,7 +334,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV (500) /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 211 558 227 ] /Subtype /Widget /T (security_deposit) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 262 558 278 ] /Subtype /Widget /T (security_deposit) 
   /TU (Refundable Security Deposit) /Type /Annot /V (500)
 >>
 endobj
@@ -356,7 +356,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 187 558 203 ] /Subtype /Widget /T (total_stay) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 241 558 257 ] /Subtype /Widget /T (total_stay) 
   /TU (Total Stay Cost  \(includes refundable security deposit\)) /Type /Annot /V ()
 >>
 endobj
@@ -378,7 +378,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 107 558 123 ] /Subtype /Widget /T (initial_deposit) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 176 558 192 ] /Subtype /Widget /T (initial_deposit) 
   /TU (Initial Deposit  \(50% of Subtotal\) - due upon signing) /Type /Annot /V ()
 >>
 endobj
@@ -400,7 +400,7 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 83 558 99 ] /Subtype /Widget /T (final_payment) 
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 142 558 158 ] /Subtype /Widget /T (final_payment) 
   /TU (Final Payment  \(Remaining 50% + Security Deposit\)) /Type /Annot /V ()
 >>
 endobj
@@ -422,8 +422,8 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 56 558 72 ] /Subtype /Widget /T (final_payment_due_date) 
-  /TU (Auto-calculated: 30 days before check-in) /Type /Annot /V ()
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 118 558 134 ] /Subtype /Widget /T (final_payment_due_date) 
+  /TU (Due 30 days before check-in) /Type /Annot /V ()
 >>
 endobj
 59 0 obj
@@ -444,8 +444,8 @@ endobj
 >> /BS <<
 /S /S /W 1
 >> /DA (/Helv 9 Tf .164706 .14902 .12549 rg) /DV () /F 4 /FT /Tx 
-  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 26 558 42 ] /Subtype /Widget /T (security_refund_date) 
-  /TU (Auto-calculated: 7 days after check-out) /Type /Annot /V ()
+  /Ff 0 /MaxLen 100 /P 62 0 R /Rect [ 408 78 558 94 ] /Subtype /Widget /T (security_refund_date) 
+  /TU (Returned 7 days after check-out) /Type /Annot /V ()
 >>
 endobj
 62 0 obj
@@ -581,7 +581,7 @@ endobj
 endobj
 78 0 obj
 <<
-/Author (Copper Cup Cabin) /CreationDate (D:20260722090802-07'00') /Creator (anonymous) /Keywords () /ModDate (D:20260722090802-07'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+/Author (Copper Cup Cabin) /CreationDate (D:20260722104205-07'00') /Creator (anonymous) /Keywords () /ModDate (D:20260722104205-07'00') /Producer (ReportLab PDF Library - \(opensource\)) 
   /Subject (unspecified) /Title (Copper Cup Cabin \204 Short-Term Rental Agreement) /Trapped /False
 >>
 endobj
@@ -592,10 +592,10 @@ endobj
 endobj
 80 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1890
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1987
 >>
 stream
-GauHLhfIL2&:WfGfU'3AHA>tOZ>B:"#`t:]"=Q7sFXAc]#iZo6;u^OSIt,)=8PG?1R,D[6$*peBhm^5o,V96'IsLiSL]G^`34n+a"aDQUP"G/G@-Da#lPQKLJ@Wg"_T#C9)?S?0-SEFh*+@n%WJ8rmcBf#!W>e&Q#n$]aW,m-EUsVEKK)#eD0-&`S(CMMuD*+V"35Q"(/q&)C<\R'*mlQIYBc@Br024/R/Er>:&u,HC$)=_lW%haGYNatAYdjfgJs6"9P3-%GV\.-pSGO8hX])>HCnH=R)8%p$i0(Ud<(U@LHT*UA-9#cTQtb9kZ@E8L.`86Z1efIO.8BL`e*1fUrL58.Hfq.Y^o^EkH?XH;+5`'j+^@f\`a3R?rY*TS%2@##Y!c>H6!bm:VM./DX?!f7/Fd^LoUb*F*)V;!VLf3CkBAu3PC*)gDrLD#?A,kD@@X6E*9c-UZlcI0iuRf!-O%(/N!U05#<i=ZaTf7.*Mtg*'uH-BK2-t<gt?6Dn\DUDLX2>!'QRnQ">6EK(k.*G,&De!OqBrndK_tj'(ZFE2t90N'M0T&E]cOS(6eBnboD&:/.@K#P%`mN@pldO'P7M4RTqQU#RrC.Z(Hb3bTSd>X(Y6S"f&=8Vo2GGQ!*afFDYd>gknd.Q;bZXFQSgA0*_IC_?>W0abhhY]:VKEI)1dt+Of2k)\(uTE;qK.&'0CWk49oOI$[N%^;W,r`$!(N_/Ck@(g3):d_YU:cGnKl)afN6Sq<"Rh`rcTpq>cK6<4^a->a&U$K)DN_"er?h(^H7V@PL9$_?Bu<j#f#_Usok4/ClYbT?EPZ,k$)dV/\'7Xg/nZWs@gbM!"m<eSpKma;hs^o)BJXC5@%MmfpiG'LX7aV@8kH<ro>?_YkCmNVZmK-U_[H^),o=LY1[\mM2YEc*a:*'-n&'M$RhC2KUiSWRNliQ[,KiTrqX)bn=+(ud/hoh.,3MG!%-G<5N.4,RJ)j/,./LsD=0ZRu13T#,@q"SpV&@!^X@4E/0'Qbu"b8Wj#`.F*cMY;K?,L3@:)UJ/:_eT&+5b;WXm&Z=BIIW*TuqCqGXIsi:WNsFaB,XJ_fP!_\NnV]No#6#qt2TTOa(6o^1]b8d8c#Vi+e3Tt5Fb!Ytl%!JI)LaCZpW!//mgA29f@R^hVh7t,`Da7&k>/!>J(i5=5LI&].dQb1qa-XmV%1suB]e)VL^rsC6tX:jJQle]4_3*jOB%QGrJgO20O>FVf-%sip5pA_#Jr7]4J:9&,uV%3Y'I:nBiBBg+k(2^eb,bTVH64!oG8I:<sM/4k$&\dq]lR@f)Xq1WTSb[=(up9f^6W,C<?)&D4X2Y3F9Ap$(e#5)2*"6.@*"^Qk0,$*WK]is&H+O48.u\O!FDA"4V'[K=EAq43shjiRid.s4qX5F#>3j=N58u5+2=3)IMM"A3-->4I?T8hi)0b"#ln56c:L"UH$Ib$rWXB4*8!9m$8+KmTip1)N+D;L+HSn5eJF/`fC-]RRAa7(L`72VZ)l2)T6$\n\.lc(ifB3aT?fhJj!,iA+jrUB\VMaoE04-mY"%+q-2Xu@-MSc=Qib:Q@n`N(<4+"G:275C@FFd<f=n-7Jt3)5XQ11[uV$'/,oO*DS?kaUr\$'J+83lMj*QDJ\'j7#3>,NJG<IL#K;$kr\=/)5?=QO,FX<.0)+WpB!^d/=7^,AHuL5dlTO74g4MAc@S\"/LR"])[o!3S1$4HQfrZn9;`mZ_)K_;QD:o7`G@.1k#'g:'G4QGeW&eL@T5M)eXf4S$Jg=g8;rFo0aPT=Ggu%E3Dm"Z+#iis,G'Ar#'+?q%P>k"Q@J$2C1@;*+kn<gToV9%IBRd.h#=Zto9g7$o:;?XNLmg9L3L\7OGG)>^#Gd^X,)Z;?gTV!TrrDQ1%[R~>endstream
+GauHL?$G!l&:N_CbY*<LZsIOEeOmtWM_TB7[=Nju2!=X&L]o:t'%'2^rdAE[,"AitE^5V4D"PPYm[ZF$1E$`-rc7s%MubPY35=Ig:%/t7"V]hO5i;#acS[9""Qi9WRLXcRcS-MHFqVJhiX,qZB*oEX3hJHX8=/ka(*N-#N'$3(Bbp`>c<)cAprmkCB/Ysj:l]=JR;:Mba@5#<j8ps_cJ&ih;E0C6`jI889j;jQ;.DH!jFkpfR9=%<lb'*I9>TR"r"r2+%r#(7q'q;2U66^&6$J_G($"g5p`I>%<A2qA%43rTP<%C\11>1GZ%,uCA(igpPC(_sCFHeAV<;TW^!V)[T0Vj_%)))J?jL^i8dE$k\;'`r#(@Y37s@>83uIr,(VLh'bVD>4Y%/l)R7paA?MVU0K?#O&O#*O)*,k)1)MDfr\5GW_TX#bI_u!gDpF"EF.MVN=+q'Q1h4LG?BF4,Lkj!"gU3iVf0EJiHA)P)R!V`S2,j11U=Mf(*.BnLf\aCR]psS-j&HdV1(C%h9+^0`n)[lgW"l'`L!"+WJnD"Tm:O(d6'@S'MV6J)3G\Yo*d!$Mmd]%)Y0N&1NNMiq1Q_c8g.e(sIP+a#*=J+Sq>3[l0bZLI4B1cSf=tB*)\-f>nS%^I:LCWP$P"aQ;X5U6C;i8F.`BV,C^njc2TZFsm:D=sZe:BUI:AdD-\h!N96@=hRW,;OLUg[r#UG%JHp+_BW\p29hJ<<9O-=,EqL`Eg6%SDX@T#A[?DdY1/Gi*[M;cG1G:"l`NVD*S5PQWUFOme<=JXV%_EF#TWJ9/DR<<g>`<pbu@[$`95l*8=O)7I-Z]H7@jAtA`[;gI48E3`r`D;s-LBE0,=Uks\3):.#oU>"Sn![h(!Hd#87_/&['VRnh_arh/2EfK=$"8;\-Ms_CK]/[9D=R<ZHV;t1MVP=m5P\5ZN'*"alm8)S]rP<.QQ[Pqj2a8VO#Z41?HViZcB7g=>""YoI6@:thT5X5^rY2f;&B&A>guI-Ioe9t3gS)`'<#5L"MK<7WD2jh#cn6nj'W,eX22mh3`G,JgicK[ulX%$25:inMc2DXp*a@\d,sf*BbonH'K!Iqn_I++E/*&L)Mops#O"`G*lGC$6K<X73npmPuO-]?eAQMn'C,"uaH\:_q9^ck;]9<bPAUtZ0D@?>;\*cJOBDPE0DH59R?Md@Zm8D."'m=)i+jiJ;'?Jf]dFH;LDeu36BZPp0mIHMLOsjHGkX1G?F>T-I)$d%JN<;4F[6r)YX%GQ-B*B$h!sk<te[DM-9ifZH.$Jp1>N'X'=CtF8JP3CGo;FVO-s"&0T)\>mb)YY%\b3Te>P#M[m7!lU^3K<Km&"_@6qOm<k:/uhhtZA=rpu$I6+auJr4ptFcIN)Be63@ASl`\uI(8PSI@0`boIoZNqW%e6p]W9>UV@#NC[=j:UZoRL8cS26@+*r=!$*X'GI`Ge8>7:pOm:<JU;ORJh)8BkcX:'/.+`/7H*j@MEI^;R6CIu+'i-(IfG5j@3B8+.Y!kTnPm5KA"-s<IX8Uj=UNcN]J`X+,+lB@bA+-HR('`H,oB29C4]n)kgD2):ah5HD<eY7nLp@jUBpldg:&epJr#^%m<B@XI&l`9ZChP:c.SLNXfC2=lhju*MK/O#Phku=+)A3\!'$oLN`,OE'M%i!Q&a-tWLRD>ABK4MdA<d"V%Rp!/f&Vt&mSJoQ5/TB?pgtHn*gGM[F)k/490_n<3e+55?DZ3HT`dHbk[HoJAZ@/b7*WQIF:/j@Ff8hDbMoGajuedn`J6>UE4W:(o/G>>^Y)q7qW9pNhfs59B'kW8N8;UF@l=R1]J4VGN88<Z0m3)V6T=%Fk!fNaZ^VdLYG1W.&Goo:m(VCW0>_XA$kT7,rWa3HlpenP25[tX>%M-Q%YIoK4:T^8'@[\Z^6$@&6t)^JLn/9Ilk,fO]?.)D"\XOcY`r8EB2;L0ZHiP;_VcrkEXohcjc1U^.Pra;364!>-DC#a(kH;N~>endstream
 endobj
 81 0 obj
 <<
@@ -682,38 +682,38 @@ xref
 0000680227 00000 n 
 0000680326 00000 n 
 0000680600 00000 n 
-0000680896 00000 n 
-0000680995 00000 n 
-0000681269 00000 n 
-0000681563 00000 n 
-0000681662 00000 n 
-0000681936 00000 n 
-0000682227 00000 n 
-0000682627 00000 n 
-0000682823 00000 n 
-0000682922 00000 n 
-0000683199 00000 n 
-0000683472 00000 n 
-0000683571 00000 n 
-0000683847 00000 n 
-0000684126 00000 n 
-0000684225 00000 n 
-0000684574 00000 n 
-0000684869 00000 n 
-0000684968 00000 n 
-0000685244 00000 n 
-0000685521 00000 n 
-0000685757 00000 n 
-0000685844 00000 n 
-0000686154 00000 n 
-0000686229 00000 n 
-0000688211 00000 n 
-0000690040 00000 n 
-0000692212 00000 n 
+0000680898 00000 n 
+0000680997 00000 n 
+0000681271 00000 n 
+0000681554 00000 n 
+0000681653 00000 n 
+0000681927 00000 n 
+0000682210 00000 n 
+0000682610 00000 n 
+0000682806 00000 n 
+0000682905 00000 n 
+0000683182 00000 n 
+0000683455 00000 n 
+0000683554 00000 n 
+0000683830 00000 n 
+0000684109 00000 n 
+0000684208 00000 n 
+0000684557 00000 n 
+0000684852 00000 n 
+0000684951 00000 n 
+0000685227 00000 n 
+0000685504 00000 n 
+0000685740 00000 n 
+0000685827 00000 n 
+0000686137 00000 n 
+0000686212 00000 n 
+0000688291 00000 n 
+0000690120 00000 n 
+0000692292 00000 n 
 trailer
 <<
 /ID 
-[<4790484131c9f5f41f4bd37b7a023e57><4790484131c9f5f41f4bd37b7a023e57>]
+[<ae573479bb0c9de1ab4d40dbb1a2bac8><ae573479bb0c9de1ab4d40dbb1a2bac8>]
 % ReportLab generated PDF document -- digest (opensource)
 
 /Info 78 0 R
@@ -721,5 +721,5 @@ trailer
 /Size 84
 >>
 startxref
-692497
+692577
 %%EOF
